@@ -90,14 +90,7 @@ Based on a [t3 Stack][t3-url]:
 
 ### Prerequisites
 
-- Fill out the `.env` variables 
-```
-Have a look in the .env.example
-```
-- Install the node modules
-```sh
-yarn install
-```
+😎 be cool 😎
 
 ### Installation
 
@@ -114,7 +107,7 @@ yarn install
    ```sh
    yarn dev
    ```
-5. Shout Henry a bbt  
+5. Shout Henry a bbt 🧋
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
