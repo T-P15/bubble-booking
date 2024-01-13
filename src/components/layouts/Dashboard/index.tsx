@@ -5,12 +5,13 @@ import { ReactNode, useState } from "react";
 import { ExpandMore, Menu, Notifications, Search } from "@mui/icons-material";
 import { Avatar, InputAdornment, InputBase } from "@mui/material";
 
-import { Nav } from "../Nav";
+import { Nav } from "./Nav";
 
 interface DashboardProps {
   children: ReactNode;
 }
-export function Dashboard({ children }: DashboardProps) {
+
+function DashboardLayout({ children }: DashboardProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -118,3 +119,5 @@ export function Dashboard({ children }: DashboardProps) {
     </div>
   );
 }
+
+export default DashboardLayout;

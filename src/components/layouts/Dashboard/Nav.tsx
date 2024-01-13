@@ -43,7 +43,7 @@ export function Nav({ onClose, isMobile }: NavProps) {
   }, [onClose]);
 
   return (
-    <div className="flex w-full flex-col gap-x-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
+    <div className="flex flex-1 flex-col gap-x-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
       <div className="flex h-16 w-full items-center justify-between">
         <div className="flex">Logo</div>
         {isMobile ? (
