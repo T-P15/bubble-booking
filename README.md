@@ -79,6 +79,7 @@ Based on a [t3 Stack][t3-url]:
 - Styling - [Tailwind CSS][Tailwind-url]
 - Type safety - [tRPC][tRPC-url]
 - Host - [Vercel][Vercel-url]
+- Database Host - [Neon][neon-url]
 - Icons - [Material Icons][MaterialIcons-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -149,3 +150,4 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- BE/INFRA -->
 [vercel-url]: https://vercel.com/
 [postgresql-url]: https://www.postgresql.org/
+[neon-url]: https://neon.tech/
