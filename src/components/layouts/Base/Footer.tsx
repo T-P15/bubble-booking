@@ -1,17 +1,21 @@
+import Image from "next/image";
+
 function Footer() {
   return (
-    <footer className="bg-white p-4 sm:p-6 dark:bg-gray-800">
+    <footer className="bg-white p-4 dark:bg-gray-900 sm:p-6">
       <div className="mx-auto max-w-screen-xl">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="https://flowbite.com" className="flex items-center">
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="mr-3 h-8"
-                alt="FlowBite Logo"
+            <a href="/" className="flex items-center">
+              <Image
+                src="/images/logo.png"
+                className="mr-3 aspect-square w-8"
+                alt="Bubble Booking logo"
+                width={6000}
+                height={6000}
               />
               <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-                Flowbite
+                Bubble Booking
               </span>
             </a>
           </div>
@@ -78,9 +82,9 @@ function Footer() {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
+        <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
             © 2022{" "}
             <a href="https://flowbite.com" className="hover:underline">
               Flowbite™

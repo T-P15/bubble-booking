@@ -1,3 +1,5 @@
+"use client";
+
 import { ReactNode } from "react";
 
 import Footer from "./Footer";
@@ -9,11 +11,11 @@ interface DefaultProps {
 
 function BaseLayout({ children }: DefaultProps) {
   return (
-    <div>
+    <main>
       <Header />
-      <main>{children}</main>
+      <div className="bg-gray-100 dark:bg-gray-800">{children}</div>
       <Footer />
-    </div>
+    </main>
   );
 }
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useCallback } from "react";
 
 import {
@@ -45,7 +46,16 @@ export function Nav({ onClose, isMobile }: NavProps) {
   return (
     <div className="flex flex-1 flex-col gap-x-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
       <div className="flex h-16 w-full items-center justify-between">
-        <div className="flex">Logo</div>
+        <div className="flex items-center">
+          <Image
+            src={"/images/logo.png"}
+            alt={"Bubble Booking Logo"}
+            width={6000}
+            height={6000}
+            className="aspect-square w-9"
+          />
+          <span>Bubble Booking</span>
+        </div>
         {isMobile ? (
           <div className="flex shrink justify-center opacity-100 lg:hidden">
             <button

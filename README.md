@@ -75,7 +75,7 @@ With drastic room to grow and a strong product-focused mindset, stay tuned to se
 Based on a [t3 Stack][t3-url]:
 - Framework - [Next.js][Next-url]
 - Authentication - [NextAuth.js][NextAuth-url]
-- Database toolkit - [Prisma][Prisma-url]
+- Object-Relational Mapping - [Prisma][Prisma-url]
 - Styling - [Tailwind CSS][Tailwind-url]
 - Type safety - [tRPC][tRPC-url]
 - Host - [Vercel][Vercel-url]
