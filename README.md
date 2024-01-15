@@ -74,13 +74,12 @@ With drastic room to grow and a strong product-focused mindset, stay tuned to se
 
 Based on a [t3 Stack][t3-url]:
 - Framework - [Next.js][Next-url]
-- Authentication - [NextAuth.js][NextAuth-url]
-- Object-Relational Mapping - [Prisma][Prisma-url]
+- Authentication - [Supabase auth](https://supabase.com/auth)
 - Styling - [Tailwind CSS][Tailwind-url]
-- Type safety - [tRPC][tRPC-url]
 - Host - [Vercel][Vercel-url]
-- Database Host - [Neon][neon-url]
+- Database Host - [Supabase][supabase-url]
 - Icons - [Material Icons][MaterialIcons-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,4 +149,4 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- BE/INFRA -->
 [vercel-url]: https://vercel.com/
 [postgresql-url]: https://www.postgresql.org/
-[neon-url]: https://neon.tech/
+[supabase-url]: https://supabase.com/

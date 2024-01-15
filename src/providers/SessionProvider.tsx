@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createContext, ReactNode, useContext, useEffect } from "react";
+import { createContext, ReactNode, useEffect } from "react";
 import { Database } from "~/types/database.types";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -17,7 +17,7 @@ interface SessionProviderProps {
   session: Session | null;
 }
 
-const SessionContext = createContext<SessionContextProps | undefined>(
+export const SessionContext = createContext<SessionContextProps | undefined>(
   undefined,
 );
 
@@ -45,13 +45,3 @@ export function SessionProvider({ children, session }: SessionProviderProps) {
     </SessionContext.Provider>
   );
 }
-
-export const useSession = () => {
-  const context = useContext(SessionContext);
-
-  if (context === undefined) {
-    throw new Error("useSession must be used inside SupabaseProvider");
-  }
-
-  return context.session;
-};

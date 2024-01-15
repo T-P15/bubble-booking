@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useState } from "react";
-import { ThemeSwitcher } from "~/components/ThemeSwitcher";
-import { useSession } from "~/providers/SessionProvider";
+import { useCallback, useEffect, useState } from "react";
+import AuthModal from "~/components/auth/AuthModal";
+import ThemeSwitcher from "~/components/ThemeSwitcher";
+import useQuery from "~/hooks/useQuery";
+import useSession from "~/hooks/useSession";
 import { Database } from "~/types/database.types";
 
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { Close, Menu } from "@mui/icons-material";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
@@ -20,15 +21,30 @@ const NAV_ITEMS = [
 function Header() {
   const supabase = createClientComponentClient<Database>();
   const session = useSession();
-  const [parent] = useAutoAnimate();
+  const { setSearchParam, hasSearchParam } = useQuery();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   const handleToggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
   }, []);
 
+  const handleClickLogIn = useCallback(() => {
+    setSearchParam("auth-modal", "sign_in");
+  }, [setSearchParam]);
+
+  const handleClickSignUp = useCallback(() => {
+    setSearchParam("auth-modal", "sign_up");
+  }, [setSearchParam]);
+
+  useEffect(() => {
+    const isAuthModalParamExists = hasSearchParam("auth-modal");
+
+    setIsAuthModalOpen(isAuthModalParamExists);
+  }, [hasSearchParam]);
+
   return (
-    <header className="sticky top-0 z-50" ref={parent}>
+    <header className="sticky top-0 z-50">
       <nav className="border-gray-200 bg-white px-4 py-2.5 dark:bg-gray-800 lg:px-6">
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
           <a href="/" className="flex items-center">
@@ -77,18 +93,18 @@ function Header() {
               </>
             ) : (
               <>
-                <Link
-                  href="/user/login"
+                <button
+                  onClick={handleClickLogIn}
                   className="mr-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:px-5 lg:py-2.5"
                 >
                   Log in
-                </Link>
-                <Link
-                  href="/dashboard"
+                </button>
+                <button
+                  onClick={handleClickSignUp}
                   className="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-800 focus:outline-none focus:ring-4 dark:text-white lg:px-5 lg:py-2.5"
                 >
                   Sign up
-                </Link>
+                </button>
               </>
             )}
             <ThemeSwitcher />
@@ -107,6 +123,9 @@ function Header() {
           </div>
         </div>
       </nav>
+
+      {/* Modals */}
+      <AuthModal open={isAuthModalOpen} />
     </header>
   );
 }

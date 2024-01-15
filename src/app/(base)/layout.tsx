@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 import BaseLayout from "~/components/layouts/Base";
 
-export default async function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: ReactNode;
-}) {
+}
+
+export default async function RootLayout({ children }: RootLayoutProps) {
   return <BaseLayout>{children}</BaseLayout>;
 }
