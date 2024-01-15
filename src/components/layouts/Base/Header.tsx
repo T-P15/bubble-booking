@@ -1,19 +1,34 @@
-("");
-
 import Image from "next/image";
 import Link from "next/link";
+import { useCallback, useState } from "react";
 import { ThemeSwitcher } from "~/components/ThemeSwitcher";
 import { useSession } from "~/providers/SessionProvider";
 import { Database } from "~/types/database.types";
 
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { Close, Menu } from "@mui/icons-material";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+
+const NAV_ITEMS = [
+  { title: "Company", href: "#" },
+  { title: "Marketplace", href: "#" },
+  { title: "Features", href: "#" },
+  { title: "Team", href: "#" },
+  { title: "Contact", href: "#" },
+];
 
 function Header() {
   const supabase = createClientComponentClient<Database>();
   const session = useSession();
+  const [parent] = useAutoAnimate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleToggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen((prev) => !prev);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50" ref={parent}>
       <nav className="border-gray-200 bg-white px-4 py-2.5 dark:bg-gray-800 lg:px-6">
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
           <a href="/" className="flex items-center">
@@ -29,50 +44,21 @@ function Header() {
             </span>
           </a>
           <div
-            className="hidden w-full items-center justify-between lg:order-1 lg:flex lg:w-auto"
-            id="mobile-menu-2"
+            className={`${
+              isMobileMenuOpen ? " flex " : "hidden"
+            } absolute left-0 top-full w-full items-center justify-between bg-white dark:bg-gray-800 lg:relative lg:order-1 lg:flex lg:w-auto`}
           >
-            <ul className="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
-              <li>
-                <Link
-                  href="#"
-                  className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
-                >
-                  Company{" "}
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
-                >
-                  Marketplace
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
-                >
-                  Team
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
-                >
-                  Contact
-                </a>
-              </li>
+            <ul className="flex w-full flex-col font-medium lg:mt-0 lg:flex-row lg:gap-x-8">
+              {NAV_ITEMS.map((navItem) => (
+                <li key={navItem.title}>
+                  <Link
+                    href={navItem.href}
+                    className="lg:hover:text-primary block rounded border-gray-100 px-4 py-2 text-center text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-2 lg:dark:hover:bg-transparent lg:dark:hover:text-white"
+                  >
+                    {navItem.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="flex items-center lg:order-2">
@@ -107,37 +93,16 @@ function Header() {
             )}
             <ThemeSwitcher />
             <button
-              data-collapse-toggle="mobile-menu-2"
               type="button"
               className="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 lg:hidden"
-              aria-controls="mobile-menu-2"
               aria-expanded="false"
+              onClick={handleToggleMobileMenu}
             >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <svg
-                className="hidden h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              {isMobileMenuOpen ? (
+                <Close className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
