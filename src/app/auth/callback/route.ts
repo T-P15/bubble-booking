@@ -1,8 +1,8 @@
-import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
-import { Database } from "~/types/database.types";
+import { cookies } from 'next/headers';
+import { NextRequest, NextResponse } from 'next/server';
+import { Database } from '~/utils/types/database.types';
 
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 
 export async function GET(request: NextRequest) {
   const cookieStore = cookies();

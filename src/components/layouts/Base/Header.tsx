@@ -1,14 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
-import AuthModal from "~/components/auth/AuthModal";
+import { useCallback, useState } from "react";
 import ThemeSwitcher from "~/components/ThemeSwitcher";
-import useQuery from "~/hooks/useQuery";
-import useSession from "~/hooks/useSession";
-import { Database } from "~/types/database.types";
+import useSupabaseClient from "~/utils/client/supabase-client";
+import useQuery from "~/utils/hooks/useQuery";
+import useSession from "~/utils/hooks/useSession";
 
 import { Close, Menu } from "@mui/icons-material";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 const NAV_ITEMS = [
   { title: "Company", href: "#" },
@@ -19,11 +17,10 @@ const NAV_ITEMS = [
 ];
 
 function Header() {
-  const supabase = createClientComponentClient<Database>();
+  const supabase = useSupabaseClient();
   const session = useSession();
-  const { setSearchParam, hasSearchParam } = useQuery();
+  const { setSearchParam } = useQuery();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   const handleToggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -37,11 +34,15 @@ function Header() {
     setSearchParam("auth-modal", "sign_up");
   }, [setSearchParam]);
 
-  useEffect(() => {
-    const isAuthModalParamExists = hasSearchParam("auth-modal");
+  const handleClickSignOut = useCallback(async () => {
+    try {
+      void fetch("/auth/signout", { method: "POST" });
 
-    setIsAuthModalOpen(isAuthModalParamExists);
-  }, [hasSearchParam]);
+      await supabase.auth.signOut();
+    } catch (e) {
+      console.error(e);
+    }
+  }, [supabase.auth]);
 
   return (
     <header className="sticky top-0 z-50">
@@ -81,15 +82,12 @@ function Header() {
             {session ? (
               <>
                 {session.user.email}
-
                 <button
-                  onClick={async () => {
-                    await supabase.auth.signOut();
-                  }}
+                  onClick={handleClickSignOut}
                   className="mr-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800 lg:px-5 lg:py-2.5"
                 >
                   Sign out
-                </button>
+                </button>{" "}
               </>
             ) : (
               <>
@@ -123,9 +121,6 @@ function Header() {
           </div>
         </div>
       </nav>
-
-      {/* Modals */}
-      <AuthModal open={isAuthModalOpen} />
     </header>
   );
 }

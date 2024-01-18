@@ -1,9 +1,10 @@
 "use client";
+import { redirect } from "next/navigation";
+import { ReactNode, useEffect, useState } from "react";
+import useSession from "~/utils/hooks/useSession";
 
-import { ReactNode, useState } from "react";
-
-import { ExpandMore, Menu, Notifications, Search } from "@mui/icons-material";
-import { Avatar, InputAdornment, InputBase } from "@mui/material";
+import { Menu, Notifications, Search } from "@mui/icons-material";
+import { InputAdornment, InputBase } from "@mui/material";
 
 import { Nav } from "./Nav";
 
@@ -12,6 +13,8 @@ interface DashboardProps {
 }
 
 function DashboardLayout({ children }: DashboardProps) {
+  const session = useSession();
+
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -21,6 +24,12 @@ function DashboardLayout({ children }: DashboardProps) {
   const handleDrawerClose = () => {
     setIsDrawerOpen(false);
   };
+
+  useEffect(() => {
+    if (session?.user.role !== "authenticated") {
+      redirect("/");
+    }
+  }, [session?.user.role]);
 
   return (
     <div>
@@ -69,31 +78,7 @@ function DashboardLayout({ children }: DashboardProps) {
                     className="hidden bg-gray-900/10 lg:block lg:h-6 lg:w-[1px]"
                     aria-hidden="true"
                   />
-                  <div className="relative" data-headlessui-state="">
-                    <button
-                      className="m-[-0.375rem] flex items-center p-1.5"
-                      id="headlessui-menu-button-1"
-                      type="button"
-                      aria-haspopup="menu"
-                      aria-expanded="false"
-                      data-headlessui-state=""
-                      onClick={handleDrawerOpen}
-                    >
-                      <span className="absolute m-[-1px] h-[1px] w-[1px] overflow-hidden whitespace-nowrap border-0 p-0">
-                        Open user menu
-                      </span>
-                      <Avatar src="" alt="Bubble man" />
-                      <span className="hidden lg:ml-4 lg:flex lg:items-center lg:gap-4">
-                        <span
-                          className="text-sm leading-6 text-gray-900"
-                          aria-hidden="true"
-                        >
-                          Bubble man
-                        </span>
-                        <ExpandMore className="ml-2 h-5 w-5 text-gray-400" />
-                      </span>
-                    </button>
-                  </div>
+                  <div className="relative" data-headlessui-state=""></div>
                 </div>
               </div>
             </div>

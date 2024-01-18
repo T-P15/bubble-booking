@@ -79,6 +79,7 @@ Based on a [t3 Stack][t3-url]:
 - Host - [Vercel][Vercel-url]
 - Database Host - [Supabase][supabase-url]
 - Icons - [Material Icons][MaterialIcons-url]
+- Search - [Algolia](Algolia)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

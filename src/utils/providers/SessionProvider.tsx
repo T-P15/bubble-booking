@@ -1,11 +1,12 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { createContext, ReactNode, useEffect } from "react";
-import { Database } from "~/types/database.types";
+import AuthModal from "~/components/auth/AuthModal";
+import { Database } from "~/utils/types/database.types";
 
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Session, SupabaseClient } from "@supabase/supabase-js";
+
+import useSupabaseClient from "../client/supabase-client";
 
 interface SessionContextProps {
   supabase: SupabaseClient<Database>;
@@ -22,7 +23,7 @@ export const SessionContext = createContext<SessionContextProps | undefined>(
 );
 
 export function SessionProvider({ children, session }: SessionProviderProps) {
-  const supabase = createClientComponentClient<Database>();
+  const supabase = useSupabaseClient();
   const router = useRouter();
 
   useEffect(() => {
@@ -42,6 +43,7 @@ export function SessionProvider({ children, session }: SessionProviderProps) {
   return (
     <SessionContext.Provider value={{ supabase, session }}>
       {children}
+      <AuthModal />
     </SessionContext.Provider>
   );
 }

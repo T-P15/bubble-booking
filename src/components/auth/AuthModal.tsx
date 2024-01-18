@@ -1,22 +1,23 @@
 "use client";
-
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import useQuery from "~/hooks/useQuery";
-import { Database } from "~/types/database.types";
+import useSupabaseClient from "~/utils/client/supabase-client";
+import useQuery from "~/utils/hooks/useQuery";
+import useSession from "~/utils/hooks/useSession";
 
 import { Close } from "@mui/icons-material";
 import { Dialog, DialogProps, IconButton } from "@mui/material";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa, ViewType } from "@supabase/auth-ui-shared";
 
-type AuthModalProps = Omit<DialogProps, "children">;
+type AuthModalProps = Omit<DialogProps, "children" | "open">;
 
 function AuthModal(props: AuthModalProps) {
-  const supabase = createClientComponentClient<Database>();
-  const { setSearchParam, getSearchParam } = useQuery();
+  const supabase = useSupabaseClient();
+  const session = useSession();
+  const { setSearchParam, getSearchParam, hasSearchParam } = useQuery();
   const [viewType, setViewType] = useState<ViewType>();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = useCallback(() => {
     setSearchParam("auth-modal");
@@ -41,9 +42,22 @@ function AuthModal(props: AuthModalProps) {
     }
   }, [getSearchParam, handleClose]);
 
+  useEffect(() => {
+    const isAuthModalParamExists = hasSearchParam("auth-modal");
+
+    setIsOpen(isAuthModalParamExists);
+  }, [hasSearchParam]);
+
+  useEffect(() => {
+    if (session) {
+      handleClose();
+    }
+  }, [handleClose, session]);
+
   return (
     <Dialog
       {...props}
+      open={isOpen}
       onClose={handleClose}
       closeAfterTransition={true}
       fullWidth

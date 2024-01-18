@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { useCallback } from "react";
+import useSettings from "~/utils/hooks/useSettings";
+import { settingsActionKind } from "~/utils/reducers/SettingsReducer";
 
 import {
   AccessTime,
@@ -9,6 +11,7 @@ import {
   Link,
   Settings,
 } from "@mui/icons-material";
+import { Avatar, IconButton } from "@mui/material";
 
 const NAV_ITEMS = [
   {
@@ -39,9 +42,15 @@ export type NavProps = {
 };
 
 export function Nav({ onClose, isMobile }: NavProps) {
+  const { dispatch } = useSettings();
+
   const handleDrawerClose = useCallback(() => {
     if (onClose) onClose();
   }, [onClose]);
+
+  const handleOpenSetting = useCallback(() => {
+    dispatch({ type: settingsActionKind.SET_IS_OPEN, payload: true });
+  }, [dispatch]);
 
   return (
     <div className="flex flex-1 flex-col gap-x-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
@@ -72,7 +81,7 @@ export function Nav({ onClose, isMobile }: NavProps) {
         ) : null}
       </div>
       <nav className="flex flex-1 flex-col">
-        <ul role="list" className="flex flex-1 flex-col gap-x-7">
+        <ul role="list" className="flex flex-col gap-x-7">
           <li>
             <ul role="list" className="mx-[-0.5rem]">
               {NAV_ITEMS.map(({ title, icon, href }) => (
@@ -88,14 +97,21 @@ export function Nav({ onClose, isMobile }: NavProps) {
               ))}
             </ul>
           </li>
-          <li className="mt-auto">
-            <a
-              href="#"
-              className="mx-[-0.5rem] flex gap-x-3 rounded-md p-2 text-sm leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
-            >
-              <Settings className="h-6 w-6 shrink" />
-              Settings
-            </a>
+        </ul>
+        <ul role="list" className="mt-auto flex shrink flex-col gap-x-7">
+          <li>
+            <div className="flex items-center justify-between gap-2">
+              <button className="mx-[-0.5rem] flex w-fit items-center justify-start gap-x-3 rounded-md p-2 text-sm leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
+                <Avatar src="" alt="Bubble man" className="h-10 w-10 shrink" />
+                Bubble man
+              </button>
+              <IconButton
+                onClick={handleOpenSetting}
+                className="mx-[-0.5rem] flex gap-x-3 rounded-md p-2 text-sm leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+              >
+                <Settings className="h-6 w-6 shrink" />
+              </IconButton>
+            </div>
           </li>
         </ul>
       </nav>

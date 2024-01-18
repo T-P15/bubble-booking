@@ -1,13 +1,14 @@
-import "~/styles/globals.css";
+import "~/utils/styles/globals.css";
 
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import { ReactNode } from "react";
-import { SessionProvider } from "~/providers/SessionProvider";
-import { ThemeProvider } from "~/providers/ThemeProvider";
-import { Database } from "~/types/database.types";
-
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import AuthModal from "~/components/auth/AuthModal";
+import { ReactQueryClientProvider } from "~/utils/providers/ReactQueryClientProvider";
+import { SessionProvider } from "~/utils/providers/SessionProvider";
+import { SettingsProvider } from "~/utils/providers/SettingsProvider";
+import { ThemeProvider } from "~/utils/providers/ThemeProvider";
+import useSupabaseServer from "~/utils/server/supabase-server";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = useSupabaseServer(cookies());
   const {
     data: { session },
   } = await supabase.auth.getSession();
@@ -33,9 +34,13 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${inter.variable}`}>
-        <ThemeProvider>
-          <SessionProvider session={session}>{children}</SessionProvider>
-        </ThemeProvider>
+        <ReactQueryClientProvider>
+          <ThemeProvider>
+            <SessionProvider session={session}>
+              <SettingsProvider>{children}</SettingsProvider>
+            </SessionProvider>
+          </ThemeProvider>
+        </ReactQueryClientProvider>
       </body>
     </html>
   );
