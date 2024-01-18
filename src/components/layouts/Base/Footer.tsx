@@ -15,7 +15,7 @@ function Footer() {
                 height={6000}
               />
               <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-                Bubble Booking
+                bubble
               </span>
             </a>
           </div>

@@ -57,12 +57,12 @@ function Header() {
               height={6000}
             />
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-              Bubble Booking
+              bubble
             </span>
           </a>
           <div
             className={`${
-              isMobileMenuOpen ? " flex " : "hidden"
+              isMobileMenuOpen ? "flex" : "hidden"
             } absolute left-0 top-full w-full items-center justify-between bg-white dark:bg-gray-800 lg:relative lg:order-1 lg:flex lg:w-auto`}
           >
             <ul className="flex w-full flex-col font-medium lg:mt-0 lg:flex-row lg:gap-x-8">

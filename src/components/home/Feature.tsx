@@ -10,13 +10,13 @@ function Feature() {
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6">
         <div className="mx-auto mb-8 flex max-w-screen-md flex-col lg:mb-16">
           <h2 className="mb-4 text-center text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            Neque porro quisquam est qui dolorem
+            bubble is the assistant you always dreamed of.
           </h2>
           <p className="text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as
+            our software helps increase client retention and experience, help
+            staff upsell without training costs, and makes your day to day more
+            efficient. Bubble will transform your store to make your life
+            simplier while making more making more for you.
           </p>
         </div>
         <div className="space-y-8 md:grid md:grid-cols-3 md:gap-12 md:space-y-0">
@@ -36,7 +36,7 @@ function Feature() {
               </svg>
             </div>
             <h3 className="mb-2 text-center text-xl font-bold dark:text-white">
-              Marketing
+              optimise online bookings
             </h3>
             <p className="mb-4 text-center text-gray-500 dark:text-gray-400">
               Plan it, create it, launch it. Collaborate seamlessly with all the
@@ -63,7 +63,7 @@ function Feature() {
               </svg>
             </div>
             <h3 className="mb-2 text-center text-xl font-bold dark:text-white">
-              Legal
+              optimise staff and instore sales
             </h3>
             <p className="mb-4 text-center text-gray-500 dark:text-gray-400">
               Protect your organization, devices and stay compliant with our
@@ -94,7 +94,7 @@ function Feature() {
               </svg>
             </div>
             <h3 className="mb-2 text-center text-xl font-bold dark:text-white">
-              Business Automation
+              flexible and customisable to your store
             </h3>
             <p className="mb-4 text-center text-gray-500 dark:text-gray-400">
               Auto-assign tasks, send Slack messages, and much more. Now power

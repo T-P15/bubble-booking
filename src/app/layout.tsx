@@ -3,7 +3,6 @@ import "~/utils/styles/globals.css";
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import { ReactNode } from "react";
-import AuthModal from "~/components/auth/AuthModal";
 import { ReactQueryClientProvider } from "~/utils/providers/ReactQueryClientProvider";
 import { SessionProvider } from "~/utils/providers/SessionProvider";
 import { SettingsProvider } from "~/utils/providers/SettingsProvider";
