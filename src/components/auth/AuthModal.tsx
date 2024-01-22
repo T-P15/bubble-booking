@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import useSupabaseClient from "~/utils/client/supabase-client";
@@ -50,6 +51,8 @@ function AuthModal(props: AuthModalProps) {
 
   useEffect(() => {
     if (session) {
+      // update to get profile info
+
       handleClose();
     }
   }, [handleClose, session]);
@@ -68,12 +71,12 @@ function AuthModal(props: AuthModalProps) {
             <div className="flex flex-col items-center justify-center">
               <Image
                 src={"/images/logo.png"}
-                alt={"Bubble Booking Logo"}
+                alt={"Bubble Bookings Logo"}
                 width={6000}
                 height={6000}
                 className="aspect-square w-20"
               />
-              <span className="text-lg">Bubble Booking</span>
+              <span className="text-lg">bubble</span>
             </div>
             <div className="w-full">
               <Auth

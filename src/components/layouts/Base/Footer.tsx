@@ -1,16 +1,16 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 function Footer() {
   return (
     <footer className="bg-white p-4 dark:bg-gray-900 sm:p-6">
-      <div className="mx-auto max-w-screen-xl">
+      <div className="mx-auto max-w-screen-lg">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
               <Image
                 src="/images/logo.png"
                 className="mr-3 aspect-square w-8"
-                alt="Bubble Booking logo"
+                alt="Bubble Bookings logo"
                 width={6000}
                 height={6000}
               />

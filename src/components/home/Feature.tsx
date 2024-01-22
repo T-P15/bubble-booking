@@ -7,7 +7,7 @@ import { ChevronRight } from "@mui/icons-material";
 function Feature() {
   return (
     <section>
-      <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6">
+      <div className="mx-auto max-w-screen-lg px-4 py-8 sm:py-16 lg:px-6">
         <div className="mx-auto mb-8 flex max-w-screen-md flex-col lg:mb-16">
           <h2 className="mb-4 text-center text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
             bubble is the assistant you always dreamed of.

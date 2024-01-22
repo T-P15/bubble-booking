@@ -13,7 +13,7 @@ function BaseLayout({ children }: DefaultProps) {
   return (
     <main>
       <Header />
-      <div className="bg-gray-100 dark:bg-gray-800">{children}</div>
+      <div className="m-auto bg-gray-100 dark:bg-gray-800">{children}</div>
       <Footer />
     </main>
   );

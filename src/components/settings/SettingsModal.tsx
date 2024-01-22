@@ -2,6 +2,7 @@ import useSettings from "~/utils/hooks/useSettings";
 import { settingsActionKind } from "~/utils/reducers/SettingsReducer";
 
 import {
+  Button,
   Dialog,
   DialogActions,
   DialogContent,
@@ -18,12 +19,19 @@ function SettingsModal() {
   };
 
   return (
-    <Dialog open={state.isOpen} onClose={handleCloseDialog}>
+    <Dialog
+      open={state.isOpen}
+      onClose={handleCloseDialog}
+      fullWidth
+      maxWidth="md"
+    >
       <DialogTitle>Settings</DialogTitle>
       <DialogContent>
         <SettingsModalContent />
       </DialogContent>
-      <DialogActions>Close button</DialogActions>
+      <DialogActions>
+        <Button onClick={handleCloseDialog}>Close</Button>
+      </DialogActions>
     </Dialog>
   );
 }

@@ -1,18 +1,16 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useCallback, useState } from "react";
-import ThemeSwitcher from "~/components/ThemeSwitcher";
-import useSupabaseClient from "~/utils/client/supabase-client";
-import useQuery from "~/utils/hooks/useQuery";
-import useSession from "~/utils/hooks/useSession";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useCallback, useState } from 'react';
+import ThemeSwitcher from '~/components/ThemeSwitcher';
+import useSupabaseClient from '~/utils/client/supabase-client';
+import useQuery from '~/utils/hooks/useQuery';
+import useSession from '~/utils/hooks/useSession';
 
-import { Close, Menu } from "@mui/icons-material";
+import { Close, Menu } from '@mui/icons-material';
 
 const NAV_ITEMS = [
   { title: "Company", href: "#" },
   { title: "Marketplace", href: "#" },
-  { title: "Features", href: "#" },
-  { title: "Team", href: "#" },
   { title: "Contact", href: "#" },
 ];
 
@@ -47,12 +45,12 @@ function Header() {
   return (
     <header className="sticky top-0 z-50">
       <nav className="border-gray-200 bg-white px-4 py-2.5 dark:bg-gray-800 lg:px-6">
-        <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
+        <div className="mx-auto flex max-w-screen-lg flex-wrap items-center justify-between">
           <a href="/" className="flex items-center">
             <Image
               src="/images/logo.png"
               className="mr-3 aspect-square w-6 sm:w-9"
-              alt="Bubble Booking"
+              alt="Bubble Bookings"
               width={6000}
               height={6000}
             />

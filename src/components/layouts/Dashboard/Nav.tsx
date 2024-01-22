@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useCallback } from "react";
+import useSession from "~/utils/hooks/useSession";
 import useSettings from "~/utils/hooks/useSettings";
 import { settingsActionKind } from "~/utils/reducers/SettingsReducer";
 
@@ -43,6 +44,7 @@ export type NavProps = {
 
 export function Nav({ onClose, isMobile }: NavProps) {
   const { dispatch } = useSettings();
+  const session = useSession();
 
   const handleDrawerClose = useCallback(() => {
     if (onClose) onClose();
@@ -58,12 +60,12 @@ export function Nav({ onClose, isMobile }: NavProps) {
         <div className="flex items-center">
           <Image
             src={"/images/logo.png"}
-            alt={"Bubble Booking Logo"}
+            alt={"Bubble Bookings Logo"}
             width={6000}
             height={6000}
             className="aspect-square w-9"
           />
-          <span>Bubble Booking</span>
+          <span>bubble</span>
         </div>
         {isMobile ? (
           <div className="flex shrink justify-center opacity-100 lg:hidden">
@@ -102,8 +104,12 @@ export function Nav({ onClose, isMobile }: NavProps) {
           <li>
             <div className="flex items-center justify-between gap-2">
               <button className="mx-[-0.5rem] flex w-fit items-center justify-start gap-x-3 rounded-md p-2 text-sm leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
-                <Avatar src="" alt="Bubble man" className="h-10 w-10 shrink" />
-                Bubble man
+                <Avatar
+                  src={undefined}
+                  alt="Bubble man"
+                  className="h-10 w-10 shrink"
+                />
+                {session?.user.email}
               </button>
               <IconButton
                 onClick={handleOpenSetting}

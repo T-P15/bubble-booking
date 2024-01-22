@@ -2,7 +2,7 @@
 function ImageWithCTA() {
   return (
     <section>
-      <div className="mx-auto max-w-screen-xl items-center gap-8 px-4 py-8 sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
+      <div className="mx-auto max-w-screen-lg items-center gap-8 px-4 py-8 sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
         <img
           className="w-full dark:hidden"
           src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"

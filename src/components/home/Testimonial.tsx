@@ -54,7 +54,7 @@ function Testimonial() {
   return (
     <section className="bg-gray-200 dark:bg-gray-900">
       <div
-        className={`mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-6 lg:py-16`}
+        className={`mx-auto max-w-screen-lg px-4 py-8 text-center lg:px-6 lg:py-16`}
       >
         <div className="mx-auto mb-8 flex max-w-screen-md flex-col items-center">
           <h2 className="mb-4 text-center text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">

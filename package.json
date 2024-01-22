@@ -8,14 +8,16 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "db:auth-types": "supabase gen types typescript --project-id rkjydopbgefuriukvpeu > src/types/database.types.ts"
+    "db:auth-types": "supabase gen types typescript --project-id rkjydopbgefuriukvpeu > src/utils/types/database.types.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@formkit/auto-animate": "^0.8.1",
     "@mui/icons-material": "^5.15.3",
+    "@mui/lab": "^5.0.0-alpha.161",
     "@mui/material": "^5.15.3",
+    "@mui/utils": "^5.15.5",
     "@radix-ui/themes": "^2.0.3",
     "@supabase-cache-helpers/postgrest-react-query": "^1.4.0",
     "@supabase/auth-helpers-nextjs": "^0.8.7",

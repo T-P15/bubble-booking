@@ -9,71 +9,318 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      _prisma_migrations: {
+      booking: {
         Row: {
-          applied_steps_count: number
-          checksum: string
-          finished_at: string | null
-          id: string
-          logs: string | null
-          migration_name: string
-          rolled_back_at: string | null
-          started_at: string
+          booking_id: number
+          created_at: string
+          customer_id: string | null
+          date_time: string
+          location_id: number | null
+          service_id: number
+          staff_id: number | null
         }
         Insert: {
-          applied_steps_count?: number
-          checksum: string
-          finished_at?: string | null
-          id: string
-          logs?: string | null
-          migration_name: string
-          rolled_back_at?: string | null
-          started_at?: string
+          booking_id?: number
+          created_at?: string
+          customer_id?: string | null
+          date_time: string
+          location_id?: number | null
+          service_id: number
+          staff_id?: number | null
         }
         Update: {
-          applied_steps_count?: number
-          checksum?: string
-          finished_at?: string | null
-          id?: string
-          logs?: string | null
-          migration_name?: string
-          rolled_back_at?: string | null
-          started_at?: string
-        }
-        Relationships: []
-      }
-      profiles: {
-        Row: {
-          avatar_url: string | null
-          full_name: string | null
-          id: string
-          updated_at: string | null
-          username: string | null
-          website: string | null
-        }
-        Insert: {
-          avatar_url?: string | null
-          full_name?: string | null
-          id: string
-          updated_at?: string | null
-          username?: string | null
-          website?: string | null
-        }
-        Update: {
-          avatar_url?: string | null
-          full_name?: string | null
-          id?: string
-          updated_at?: string | null
-          username?: string | null
-          website?: string | null
+          booking_id?: number
+          created_at?: string
+          customer_id?: string | null
+          date_time?: string
+          location_id?: number | null
+          service_id?: number
+          staff_id?: number | null
         }
         Relationships: [
           {
-            foreignKeyName: "profiles_id_fkey"
-            columns: ["id"]
-            isOneToOne: true
+            foreignKeyName: "booking_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
             referencedRelation: "users"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "booking_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "location"
+            referencedColumns: ["location_id"]
+          },
+          {
+            foreignKeyName: "booking_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "service"
+            referencedColumns: ["service_id"]
+          },
+          {
+            foreignKeyName: "booking_staff_id_fkey"
+            columns: ["staff_id"]
+            isOneToOne: false
+            referencedRelation: "staff"
+            referencedColumns: ["staff_id"]
+          }
+        ]
+      }
+      company: {
+        Row: {
+          company_id: number
+          contact_number: string | null
+          location: number[] | null
+          name: string | null
+          staff: number[] | null
+          website_url: string | null
+        }
+        Insert: {
+          company_id?: number
+          contact_number?: string | null
+          location?: number[] | null
+          name?: string | null
+          staff?: number[] | null
+          website_url?: string | null
+        }
+        Update: {
+          company_id?: number
+          contact_number?: string | null
+          location?: number[] | null
+          name?: string | null
+          staff?: number[] | null
+          website_url?: string | null
+        }
+        Relationships: []
+      }
+      location: {
+        Row: {
+          address: string
+          company: number | null
+          location_id: number
+        }
+        Insert: {
+          address?: string
+          company?: number | null
+          location_id?: number
+        }
+        Update: {
+          address?: string
+          company?: number | null
+          location_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "location_company_fkey"
+            columns: ["company"]
+            isOneToOne: false
+            referencedRelation: "company"
+            referencedColumns: ["company_id"]
+          }
+        ]
+      }
+      profile: {
+        Row: {
+          created_at: string
+          first_name: string | null
+          last_name: string | null
+          middle_name: string | null
+          phone_number: string | null
+          photo: Json | null
+          profile_id: number
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string
+          first_name?: string | null
+          last_name?: string | null
+          middle_name?: string | null
+          phone_number?: string | null
+          photo?: Json | null
+          profile_id?: number
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string
+          first_name?: string | null
+          last_name?: string | null
+          middle_name?: string | null
+          phone_number?: string | null
+          photo?: Json | null
+          profile_id?: number
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      service: {
+        Row: {
+          availability_id: number[] | null
+          company_id: number | null
+          cost: number
+          description: string | null
+          duration: number | null
+          image: string | null
+          location_id: number | null
+          name: string | null
+          service_id: number
+          staff_id: number | null
+        }
+        Insert: {
+          availability_id?: number[] | null
+          company_id?: number | null
+          cost?: number
+          description?: string | null
+          duration?: number | null
+          image?: string | null
+          location_id?: number | null
+          name?: string | null
+          service_id?: number
+          staff_id?: number | null
+        }
+        Update: {
+          availability_id?: number[] | null
+          company_id?: number | null
+          cost?: number
+          description?: string | null
+          duration?: number | null
+          image?: string | null
+          location_id?: number | null
+          name?: string | null
+          service_id?: number
+          staff_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "service_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "company"
+            referencedColumns: ["company_id"]
+          },
+          {
+            foreignKeyName: "service_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "location"
+            referencedColumns: ["location_id"]
+          },
+          {
+            foreignKeyName: "service_staff_id_fkey"
+            columns: ["staff_id"]
+            isOneToOne: false
+            referencedRelation: "staff"
+            referencedColumns: ["staff_id"]
+          }
+        ]
+      }
+      service_availability: {
+        Row: {
+          day_of_week: Database["public"]["Enums"]["DAYS_OF_THE_WEEK"]
+          end_time: string
+          service_availability_id: number
+          service_id: number | null
+          start_time: string
+        }
+        Insert: {
+          day_of_week: Database["public"]["Enums"]["DAYS_OF_THE_WEEK"]
+          end_time: string
+          service_availability_id?: number
+          service_id?: number | null
+          start_time: string
+        }
+        Update: {
+          day_of_week?: Database["public"]["Enums"]["DAYS_OF_THE_WEEK"]
+          end_time?: string
+          service_availability_id?: number
+          service_id?: number | null
+          start_time?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "service_availability_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "service"
+            referencedColumns: ["service_id"]
+          }
+        ]
+      }
+      staff: {
+        Row: {
+          availability: number[]
+          company: number[] | null
+          email: string | null
+          name: string | null
+          phone: string | null
+          staff_id: number
+          user_id: string | null
+        }
+        Insert: {
+          availability: number[]
+          company?: number[] | null
+          email?: string | null
+          name?: string | null
+          phone?: string | null
+          staff_id?: number
+          user_id?: string | null
+        }
+        Update: {
+          availability?: number[]
+          company?: number[] | null
+          email?: string | null
+          name?: string | null
+          phone?: string | null
+          staff_id?: number
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "staff_phone_fkey"
+            columns: ["phone"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["phone"]
+          },
+          {
+            foreignKeyName: "staff_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "identities"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      staff_availability: {
+        Row: {
+          day_of_week: Database["public"]["Enums"]["DAYS_OF_THE_WEEK"]
+          end_time: string
+          staff_availability_id: number
+          staff_id: number | null
+          start_time: string
+        }
+        Insert: {
+          day_of_week: Database["public"]["Enums"]["DAYS_OF_THE_WEEK"]
+          end_time: string
+          staff_availability_id?: number
+          staff_id?: number | null
+          start_time: string
+        }
+        Update: {
+          day_of_week?: Database["public"]["Enums"]["DAYS_OF_THE_WEEK"]
+          end_time?: string
+          staff_availability_id?: number
+          staff_id?: number | null
+          start_time?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "staff_availability_staff_id_fkey"
+            columns: ["staff_id"]
+            isOneToOne: false
+            referencedRelation: "staff"
+            referencedColumns: ["staff_id"]
           }
         ]
       }
@@ -85,7 +332,14 @@ export interface Database {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      DAYS_OF_THE_WEEK:
+        | "Monday"
+        | "Tuesday"
+        | "Wednesday"
+        | "Thursday"
+        | "Friday"
+        | "Saturday"
+        | "Sunday"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -162,7 +416,6 @@ export type TablesUpdate<
 
 export type Enums<
   PublicEnumNameOrOptions extends
-    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     | keyof Database["public"]["Enums"]
     | { schema: keyof Database },
   EnumName extends PublicEnumNameOrOptions extends { schema: keyof Database }
