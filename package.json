@@ -18,6 +18,7 @@
     "@mui/lab": "^5.0.0-alpha.161",
     "@mui/material": "^5.15.3",
     "@mui/utils": "^5.15.5",
+    "@next/third-parties": "^14.1.0",
     "@radix-ui/themes": "^2.0.3",
     "@supabase-cache-helpers/postgrest-react-query": "^1.4.0",
     "@supabase/auth-helpers-nextjs": "^0.8.7",

@@ -10,6 +10,8 @@ import SupabaseProvider from "~/utils/providers/SupabaseProvider";
 import { ThemeProvider } from "~/utils/providers/ThemeProvider";
 import useSupabaseServer from "~/utils/server/supabase-server";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 const quicksand = Quicksand({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -26,6 +28,7 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GTM_ID;
   const supabase = useSupabaseServer(cookies());
   const {
     data: { session },
@@ -39,6 +42,7 @@ export default async function RootLayout({
             <SupabaseProvider session={session}>
               <SettingsProvider>
                 <Suspense fallback={<Loading />}>{children}</Suspense>
+                {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
               </SettingsProvider>
             </SupabaseProvider>
           </ThemeProvider>
