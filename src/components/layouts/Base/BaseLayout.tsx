@@ -11,9 +11,9 @@ interface DefaultProps {
 
 function BaseLayout({ children }: DefaultProps) {
   return (
-    <main>
+    <main className="dark:from-primary-dark-pale-blue from-primary-pale-blue via-secondary-pale-purple dark:via-secondary-dark-pale-purple to-tertiary-baby-pink dark:to-tertiary-dark-baby-pink m-auto bg-gradient-to-br lowercase">
       <Header />
-      <div className="m-auto bg-gray-100 dark:bg-gray-800">{children}</div>
+      <div className="m-auto backdrop-blur">{children}</div>
       <Footer />
     </main>
   );

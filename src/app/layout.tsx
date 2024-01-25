@@ -1,6 +1,6 @@
 import "~/utils/styles/globals.css";
 
-import { Quicksand } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { cookies } from "next/headers";
 import { ReactNode, Suspense } from "react";
 import { Loading } from "~/components/layouts/Loading";
@@ -12,7 +12,8 @@ import useSupabaseServer from "~/utils/server/supabase-server";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-const quicksand = Quicksand({
+const poppins = Poppins({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -36,7 +37,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans ${quicksand.variable}`}>
+      <body className={`font-sans ${poppins.variable}`}>
         <ReactQueryClientProvider>
           <ThemeProvider>
             <SupabaseProvider session={session}>

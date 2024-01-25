@@ -12,7 +12,7 @@ function Hero() {
   }, [setSearchParam]);
 
   return (
-    <section className="bg-gray-200 dark:bg-gray-900">
+    <section className="">
       <div className="mx-auto grid max-w-screen-lg px-4 py-8 lg:grid-cols-12 lg:gap-8 lg:py-16 xl:gap-0">
         <div className="mr-auto place-self-center lg:col-span-7">
           <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">

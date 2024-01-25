@@ -1,8 +1,9 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-white p-4 dark:bg-gray-900 sm:p-6">
+    <footer className="border-secondary-pale-purple dark:border-secondary-dark-pale-purple border-t p-4 lowercase sm:p-6">
       <div className="mx-auto max-w-screen-lg">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -82,10 +83,10 @@ function Footer() {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
+        <hr className="border-secondary-pale-purple dark:border-secondary-dark-pale-purple my-6 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
-            © 2022{" "}
+            © {currentYear}{" "}
             <a href="https://flowbite.com" className="hover:underline">
               Flowbite™
             </a>

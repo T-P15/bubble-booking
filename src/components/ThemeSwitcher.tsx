@@ -22,14 +22,14 @@ function ThemeSwitcher() {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="ml-1 rounded p-1.5 hover:bg-gray-200 dark:hover:bg-gray-700 sm:ml-2"
+      className="ml-1 rounded p-1.5 sm:ml-2"
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="h-6 w-6 text-gray-900 dark:text-gray-100"
+        className="h-6 w-6 text-gray-700 hover:text-gray-500 dark:text-gray-400 dark:hover:text-white lg:dark:hover:bg-transparent lg:dark:hover:text-white"
       >
         {isDark ? (
           <path
