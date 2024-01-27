@@ -57,7 +57,7 @@ function Testimonial() {
         className={`mx-auto max-w-screen-lg px-4 py-8 text-center lg:px-6 lg:py-16`}
       >
         <div className="mx-auto mb-8 flex max-w-screen-md flex-col items-center">
-          <h2 className="mb-4 text-center text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          <h2 className="mb-4 text-center text-4xl tracking-tight text-gray-900 dark:text-white">
             Testimonials
           </h2>
           <p className="max-w-screen-sm text-center text-gray-500 dark:text-gray-400 sm:text-xl">
@@ -73,11 +73,11 @@ function Testimonial() {
             key={index}
           >
             <blockquote
-              className={` text-2xl font-medium text-gray-900 transition-all dark:text-white ${
+              className={` text-2xl text-gray-900 transition-all dark:text-white ${
                 testimonialPlacement === index ? "opacity-100" : "opacity-0"
               }`}
             >
-              <p className="text-2xl font-medium text-gray-900 dark:text-white">
+              <p className="text-2xl text-gray-900 dark:text-white">
                 {testimonial.quote}
               </p>
             </blockquote>
@@ -88,10 +88,10 @@ function Testimonial() {
                 alt="profile picture"
               />
               <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                <div className="pr-3 font-medium text-gray-900 dark:text-white">
+                <div className="pr-3 text-gray-900 dark:text-white">
                   {testimonial.author}
                 </div>
-                <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                <div className="pl-3 text-sm text-gray-500 dark:text-gray-400">
                   {testimonial.bio}
                 </div>
               </div>

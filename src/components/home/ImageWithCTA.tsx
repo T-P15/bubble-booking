@@ -14,17 +14,17 @@ function ImageWithCTA() {
           alt="dashboard image"
         />
         <div className="mt-4 md:mt-0">
-          <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          <h2 className="mb-4 text-4xl text-gray-900 dark:text-white">
             Lets create more tools and ideas that brings us together.
           </h2>
-          <p className="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">
+          <p className="mb-6 text-gray-500 dark:text-gray-400 md:text-lg">
             Flowbite helps you connect with friends and communities of people
             who share your interests. Connecting with your friends and family as
             well as discovering new ones is easy with features like Groups.
           </p>
           <a
             href="#"
-            className="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:focus:ring-primary-900 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm font-medium text-gray-900 focus:ring-4 dark:text-white"
+            className="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:focus:ring-primary-900 inline-flex items-center rounded-lg px-5 py-2.5 text-center text-sm text-gray-900 focus:ring-4 dark:text-white"
           >
             Get started
             <svg

@@ -54,7 +54,7 @@ function Header() {
               width={6000}
               height={6000}
             />
-            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            <span className="self-center whitespace-nowrap text-xl dark:text-white">
               bubble
             </span>
           </a>
@@ -63,7 +63,7 @@ function Header() {
               isMobileMenuOpen ? "flex" : "hidden"
             } dark:from-primary-dark-pale-blue/40 from-primary-pale-blue/40 via-secondary-pale-purple/70 dark:via-secondary-dark-pale-purple/70 to-tertiary-baby-pink/100 dark:to-tertiary-dark-baby-pink/100 lg:bg-image absolute left-0 top-full w-full items-center justify-between bg-gradient-to-br backdrop-blur lg:relative lg:order-1 lg:flex lg:w-auto lg:bg-none`}
           >
-            <ul className="flex w-full flex-col font-medium backdrop-blur lg:mt-0 lg:flex-row lg:gap-x-8">
+            <ul className="flex w-full flex-col backdrop-blur lg:mt-0 lg:flex-row lg:gap-x-8">
               {NAV_ITEMS.map((navItem) => (
                 <li key={navItem.title}>
                   <Link

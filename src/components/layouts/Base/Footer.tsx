@@ -15,14 +15,14 @@ function Footer() {
                 width={6000}
                 height={6000}
               />
-              <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
+              <span className="self-center whitespace-nowrap text-2xl dark:text-white">
                 bubble
               </span>
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              <h2 className="mb-6 text-sm uppercase text-gray-900 dark:text-white">
                 Resources
               </h2>
               <ul className="text-gray-600 dark:text-gray-400">
@@ -42,7 +42,7 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              <h2 className="mb-6 text-sm uppercase text-gray-900 dark:text-white">
                 Follow us
               </h2>
               <ul className="text-gray-600 dark:text-gray-400">
@@ -65,7 +65,7 @@ function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              <h2 className="mb-6 text-sm uppercase text-gray-900 dark:text-white">
                 Legal
               </h2>
               <ul className="text-gray-600 dark:text-gray-400">

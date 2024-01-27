@@ -15,16 +15,16 @@ function Hero() {
     <section className="">
       <div className="mx-auto grid max-w-screen-lg px-4 py-8 lg:grid-cols-12 lg:gap-8 lg:py-16 xl:gap-0">
         <div className="mr-auto place-self-center lg:col-span-7">
-          <h1 className="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">
+          <h1 className="mb-4 max-w-2xl text-4xl leading-none tracking-tight dark:text-white md:text-5xl xl:text-6xl">
             make the most out of your business
           </h1>
-          <p className="mb-6 max-w-2xl font-light text-gray-500 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">
+          <p className="mb-6 max-w-2xl text-gray-500 dark:text-gray-400 md:text-lg lg:mb-8 lg:text-xl">
             optimise your store easily with our booking and monetisation
             software. take advantage of what you already have using bubble
           </p>
           <a
             href="#"
-            className="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:focus:ring-primary-900 mr-3 inline-flex items-center justify-center rounded-lg px-5 py-3 text-center text-base font-medium text-gray-600 focus:ring-4 dark:text-gray-200"
+            className="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:focus:ring-primary-900 mr-3 inline-flex items-center justify-center rounded-lg px-5 py-3 text-center text-base text-gray-600 focus:ring-4 dark:text-gray-200"
           >
             see what we're made of [email input] start free trial
             <svg
@@ -42,7 +42,7 @@ function Hero() {
           </a>
           <button
             onClick={handleClickLogIn}
-            className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-center text-base font-medium text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+            className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-5 py-3 text-center text-base text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-800"
           >
             login
           </button>
