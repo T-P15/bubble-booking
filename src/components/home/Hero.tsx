@@ -1,12 +1,24 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
+import { ContentfulClientApi } from "contentful";
 import { useCallback } from "react";
+import useContentfulClient from "~/utils/client/contentful-client";
 import useQuery from "~/utils/hooks/useQuery";
 
-function Hero() {
+async function getHeroContent(contentful: ContentfulClientApi<undefined>) {
+  const res = await fetch(`https://...`);
+  const projects = await res.json();
+
+  return projects;
+}
+
+async function Hero() {
   const { setSearchParam } = useQuery();
 
+  const heroContent = await getHeroContent(contentful);
+
+  console.log({ heroContent });
   const handleClickLogIn = useCallback(() => {
     setSearchParam("auth-modal", "sign_in");
   }, [setSearchParam]);
@@ -57,5 +69,9 @@ function Hero() {
     </section>
   );
 }
+
+Hero.getInitialProps = async () => {
+  const contentful = useContentfulClient();
+};
 
 export default Hero;
