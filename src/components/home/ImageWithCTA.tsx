@@ -1,7 +1,7 @@
 "use client";
 function ImageWithCTA() {
   return (
-    <section>
+    <section id="image-with-cta">
       <div className="mx-auto max-w-screen-lg items-center gap-8 px-4 py-8 sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
         <img
           className="w-full dark:hidden"

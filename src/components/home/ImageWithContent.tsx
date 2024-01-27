@@ -28,7 +28,7 @@ function ImageWithContent() {
   });
 
   return (
-    <section ref={parent}>
+    <section ref={parent} id="image-with-content">
       <div className="mx-auto max-w-screen-lg items-center gap-16 px-4 py-8 lg:grid lg:grid-cols-2 lg:px-6 lg:py-16">
         <div className="text-gray-500 dark:text-gray-400 sm:text-lg">
           <h2 className="mb-4 text-4xl text-gray-900 dark:text-white">

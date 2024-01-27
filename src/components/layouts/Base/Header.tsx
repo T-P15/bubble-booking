@@ -1,46 +1,49 @@
 import Image from "next/image";
-import Link from "next/link";
 import { useCallback, useState } from "react";
 import ThemeSwitcher from "~/components/ThemeSwitcher";
-import useSupabaseClient from "~/utils/client/supabase-client";
-import useQuery from "~/utils/hooks/useQuery";
-import useSession from "~/utils/hooks/useSession";
 
 import { Close, Menu } from "@mui/icons-material";
 
 const NAV_ITEMS = [
-  { title: "Company", href: "#" },
-  { title: "Marketplace", href: "#" },
-  { title: "Contact", href: "#" },
+  { title: "feature", href: "feature" },
+  { title: "image with content", href: "image-with-content" },
+  { title: "image with cta", href: "image-with-cta" },
 ];
 
 function Header() {
-  const supabase = useSupabaseClient();
-  const session = useSession();
-  const { setSearchParam } = useQuery();
+  // const supabase = useSupabaseClient();
+  // const session = useSession();
+  // const { setSearchParam } = useQuery();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleToggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
   }, []);
 
-  const handleClickLogIn = useCallback(() => {
-    setSearchParam("auth-modal", "sign_in");
-  }, [setSearchParam]);
+  // const handleClickLogIn = useCallback(() => {
+  //   setSearchParam("auth-modal", "sign_in");
+  // }, [setSearchParam]);
 
-  const handleClickSignUp = useCallback(() => {
-    setSearchParam("auth-modal", "sign_up");
-  }, [setSearchParam]);
+  // const handleClickSignUp = useCallback(() => {
+  //   setSearchParam("auth-modal", "sign_up");
+  // }, [setSearchParam]);
 
-  const handleClickSignOut = useCallback(async () => {
-    try {
-      void fetch("/auth/signout", { method: "POST" });
+  // const handleClickSignOut = useCallback(async () => {
+  //   try {
+  //     void fetch("/auth/signout", { method: "POST" });
 
-      await supabase.auth.signOut();
-    } catch (e) {
-      console.error(e);
+  //     await supabase.auth.signOut();
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // }, [supabase.auth]);
+
+  const scrollToId = useCallback((id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }, [supabase.auth]);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 m-auto lowercase backdrop-blur">
@@ -66,18 +69,19 @@ function Header() {
             <ul className="flex w-full flex-col backdrop-blur lg:mt-0 lg:flex-row lg:gap-x-8">
               {NAV_ITEMS.map((navItem) => (
                 <li key={navItem.title}>
-                  <Link
-                    href={navItem.href}
+                  <button
+                    onClick={() => scrollToId(navItem.href)}
                     className="block rounded px-4 py-2 text-center text-gray-700 hover:text-gray-500 dark:text-gray-400 dark:hover:text-white lg:border-0 lg:p-2 lg:dark:hover:bg-transparent lg:dark:hover:text-white"
                   >
                     {navItem.title}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
           <div className="flex items-center lg:order-2">
-            {session ? (
+            {/* TODO: implement auth
+              {session ? (
               <>
                 {session.user.email}
                 <button
@@ -102,7 +106,7 @@ function Header() {
                   sign up
                 </button>
               </>
-            )}
+            )} */}
             <ThemeSwitcher />
             <button
               type="button"

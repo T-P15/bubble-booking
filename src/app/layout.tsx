@@ -13,7 +13,7 @@ import useSupabaseServer from "~/utils/server/supabase-server";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const poppins = Poppins({
-  weight: "400",
+  weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   variable: "--font-sans",
 });
