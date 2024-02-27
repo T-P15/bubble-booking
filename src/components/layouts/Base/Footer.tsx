@@ -4,16 +4,16 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-secondary-pale-purple dark:border-secondary-dark-pale-purple border-t p-4 lowercase sm:p-6">
-      <div className="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+    <footer className="border-secondary-pale-purple dark:border-secondary-dark-pale-purple border-t  bg-white/20 p-4 lowercase dark:bg-black/20 sm:p-6">
+      <div className="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-end">
         <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
           © {currentYear}{" "}
           <a href="https://flowbite.com/" className="hover:underline">
-            Flowbite™
+            bubble
           </a>
           . All Rights Reserved.
         </span>
-        <ul className="mt-3 flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+        {/* <ul className="mt-3 flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
           <li>
             <a href="#" className="me-4 hover:underline md:me-6">
               About
@@ -34,7 +34,7 @@ function Footer() {
               Contact
             </a>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </footer>
   );

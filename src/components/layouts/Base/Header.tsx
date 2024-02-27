@@ -46,7 +46,7 @@ function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 m-auto lowercase backdrop-blur">
+    <header className="sticky top-0 z-50 m-auto bg-white/50 lowercase shadow-lg backdrop-blur dark:bg-black/50">
       <nav className="px-4 py-2.5 lg:px-6">
         <div className="mx-auto flex max-w-screen-lg flex-wrap items-center justify-between">
           <a href="/" className="flex items-center">
@@ -61,12 +61,12 @@ function Header() {
               bubble
             </span>
           </a>
-          <div
+          {/* <div
             className={`${
               isMobileMenuOpen ? "flex" : "hidden"
-            } dark:from-primary-dark-pale-blue/40 from-primary-pale-blue/40 via-secondary-pale-purple/70 dark:via-secondary-dark-pale-purple/70 to-tertiary-baby-pink/100 dark:to-tertiary-dark-baby-pink/100 lg:bg-image absolute left-0 top-full w-full items-center justify-between bg-gradient-to-br backdrop-blur lg:relative lg:order-1 lg:flex lg:w-auto lg:bg-none`}
+            } lg:bg-image absolute left-0 top-full w-full items-center justify-between bg-white/90 backdrop-blur dark:bg-black/90 lg:relative lg:order-1 lg:flex lg:w-auto lg:bg-transparent lg:backdrop-blur-[none] lg:dark:bg-transparent`}
           >
-            <ul className="flex w-full flex-col backdrop-blur lg:mt-0 lg:flex-row lg:gap-x-8">
+            <ul className="flex w-full flex-col lg:mt-0 lg:flex-row lg:gap-x-8">
               {NAV_ITEMS.map((navItem) => (
                 <li key={navItem.title}>
                   <button
@@ -78,7 +78,7 @@ function Header() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
           <div className="flex items-center lg:order-2">
             {/* TODO: implement auth
               {session ? (

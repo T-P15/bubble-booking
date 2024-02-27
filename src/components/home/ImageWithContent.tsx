@@ -46,7 +46,7 @@ function ImageWithContent() {
           </p>
         </div>
         <div className="mt-8 grid grid-cols-2 gap-4">
-          <img
+          {/* <img
             className="w-full rounded-lg"
             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
             alt="office content 1"
@@ -55,7 +55,7 @@ function ImageWithContent() {
             className="mt-4 w-full rounded-lg lg:mt-10"
             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
             alt="office content 2"
-          />
+          /> */}
         </div>
       </div>
     </section>

@@ -1,8 +1,10 @@
 import "~/utils/styles/globals.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Poppins } from "next/font/google";
 import { cookies } from "next/headers";
 import { ReactNode, Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 import { Loading } from "~/components/layouts/Loading";
 import { ReactQueryClientProvider } from "~/utils/providers/ReactQueryClientProvider";
 import { SettingsProvider } from "~/utils/providers/SettingsProvider";
@@ -43,6 +45,7 @@ export default async function RootLayout({
             <SupabaseProvider session={session}>
               <SettingsProvider>
                 <Suspense fallback={<Loading />}>{children}</Suspense>
+                <ToastContainer />
                 {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
               </SettingsProvider>
             </SupabaseProvider>
