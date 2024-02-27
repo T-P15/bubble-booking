@@ -23,7 +23,7 @@ const poppins = Poppins({
 export const metadata = {
   title: "Bubble Bookings",
   description: "Bubble Bookings",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/images/logo.png" }],
 };
 
 export default async function RootLayout({
