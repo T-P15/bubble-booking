@@ -95,7 +95,7 @@ function ImageWithCTA() {
             </div>
             <p>subscribe for the announcement!</p>
           </div>
-          <div className="mt-4 flex-1 md:mt-0 lg:col-span-6"></div>
+          <div className="mt-4 hidden flex-1 md:mt-0 lg:col-span-6 lg:flex"></div>
         </div>
       </section>
     </AnimateComponentInView>

@@ -2,8 +2,6 @@ import Image from "next/image";
 import { useCallback, useState } from "react";
 import ThemeSwitcher from "~/components/ThemeSwitcher";
 
-import { Close, Menu } from "@mui/icons-material";
-
 const NAV_ITEMS = [
   { title: "feature", href: "feature" },
   { title: "image with content", href: "image-with-content" },
@@ -108,7 +106,7 @@ function Header() {
               </>
             )} */}
             <ThemeSwitcher />
-            <button
+            {/* <button
               type="button"
               className="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-gray-700 hover:text-gray-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:hidden"
               aria-expanded="false"
@@ -119,7 +117,7 @@ function Header() {
               ) : (
                 <Menu className="h-6 w-6" />
               )}
-            </button>
+            </button> */}
           </div>
         </div>
       </nav>

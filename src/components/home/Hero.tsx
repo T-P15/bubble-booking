@@ -40,8 +40,8 @@ function Hero() {
   return (
     <AnimateComponentInView>
       <section id="hero">
-        <div className="mx-auto grid max-w-screen-lg px-4 py-8 lg:grid-cols-12 lg:gap-8 lg:py-16">
-          <div className="m-auto flex flex-col place-self-center lg:col-span-6">
+        <div className="mx-auto flex max-w-screen-lg px-4 py-8 lg:gap-8 lg:py-16">
+          <div className="m-auto flex flex-1 flex-col place-self-center ">
             <div className="flex flex-col gap-4">
               <span className="from-primary-dark-blue dark:from-primary-blue to-tertiary-dark-baby-pink dark:to-tertiary-baby-pink mb-2 inline-block w-fit bg-gradient-to-r bg-clip-text text-xl font-normal text-transparent">
                 are you a{" "}
@@ -63,7 +63,7 @@ function Hero() {
               </ButtonGroup>
             </div>
           </div>
-          <div className="w-full lg:col-span-6 lg:mt-0 lg:flex lg:items-center">
+          <div className="hidden w-full flex-1 lg:mt-0 lg:flex lg:items-center">
             <Image
               src={HeroImage}
               alt={"hero image"}

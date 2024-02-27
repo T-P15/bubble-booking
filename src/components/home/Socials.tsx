@@ -5,9 +5,9 @@ import AnimateComponentInView from "../AnimatePresence";
 function Socials() {
   return (
     <AnimateComponentInView>
-      <section id="feature" className="bg-white/30 dark:bg-black/30">
-        <div className="mx-auto flex max-w-screen-lg px-4 py-8 sm:py-16 lg:gap-8 lg:px-6">
-          <div className="mx-auto mb-5 flex max-w-screen-lg flex-col gap-4 lg:mb-12">
+      <section id="socials" className="bg-white/30 dark:bg-black/30">
+        <div className="m-auto flex max-w-screen-lg flex-col px-4 py-8 sm:py-16 lg:flex-row lg:gap-8 lg:px-6">
+          <div className="mb-5 flex max-w-screen-lg flex-col gap-4 lg:mb-12">
             <span className="from-primary-dark-blue dark:from-primary-blue via-secondary-dark-white-blue dark:via-secondary-white-blue to-tertiary-dark-baby-pink dark:to-tertiary-baby-pink mb-2 inline-block w-fit bg-gradient-to-r bg-clip-text text-xl font-normal text-transparent">
               want to hear more?
             </span>
