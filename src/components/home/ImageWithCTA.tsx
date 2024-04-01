@@ -57,7 +57,7 @@ function ImageWithCTA() {
         >
           <div className="mx-auto flex max-w-screen-lg flex-1 flex-col gap-4">
             <span className="from-primary-dark-blue dark:from-primary-blue via-secondary-dark-white-blue dark:via-secondary-white-blue to-tertiary-dark-baby-pink dark:to-tertiary-baby-pink mb-2 inline-block w-fit bg-gradient-to-r bg-clip-text text-xl font-normal text-transparent">
-              get started
+              learn more
             </span>
             <h2 className="text-4xl tracking-tight text-gray-900 dark:text-white">
               ready to try bubble?

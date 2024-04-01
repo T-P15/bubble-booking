@@ -1,3 +1,12 @@
+import Header from "~/components/dashboard/Header";
+
 export default function Workflows() {
-  return <div>Workflows</div>;
+  return (
+    <div>
+      <Header
+        title="Workflows"
+        subtitle="Create workflows to automate notifications and reminders"
+      />
+    </div>
+  );
 }

@@ -1,7 +1,5 @@
 "use client";
-
-import { redirect } from "next/navigation";
-import { ReactNode, Suspense, useCallback, useEffect, useState } from "react";
+import { ReactNode, Suspense, useCallback, useState } from "react";
 import useSession from "~/utils/hooks/useSession";
 
 import { Menu, Notifications, Search } from "@mui/icons-material";
@@ -27,11 +25,11 @@ function DashboardLayout({ children }: DashboardProps) {
     setIsDrawerOpen(false);
   }, []);
 
-  useEffect(() => {
-    if (session?.user.role !== "authenticated") {
-      redirect("/");
-    }
-  }, [session?.user.role]);
+  // useEffect(() => {
+  //   if (session?.user.role !== "authenticated") {
+  //     redirect("/");
+  //   }
+  // }, [session?.user.role]);
 
   return (
     <div>

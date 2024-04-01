@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useCallback } from "react";
 import useSession from "~/utils/hooks/useSession";
 import useSettings from "~/utils/hooks/useSettings";
@@ -45,6 +46,7 @@ export type NavProps = {
 export function Nav({ onClose, isMobile }: NavProps) {
   const { dispatch } = useSettings();
   const session = useSession();
+  const pathname = usePathname();
 
   const handleDrawerClose = useCallback(() => {
     if (onClose) onClose();
@@ -90,7 +92,7 @@ export function Nav({ onClose, isMobile }: NavProps) {
                 <li key={title}>
                   <a
                     href={href}
-                    className="flex gap-x-3 rounded-md p-2 text-sm leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600"
+                    className={`flex gap-x-3 rounded-md p-2 text-sm leading-6 ${href.includes(pathname) ? "bg-gray-50 text-indigo-600" : "text-gray-700"} hover:bg-gray-50 hover:text-indigo-600`}
                   >
                     {icon}
                     {title}
