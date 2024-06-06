@@ -1,18 +1,18 @@
-import "~/utils/styles/globals.css";
-import "react-toastify/dist/ReactToastify.css";
+import '~/utils/styles/globals.css';
+import 'react-toastify/dist/ReactToastify.css';
 
-import { Poppins } from "next/font/google";
-import { cookies } from "next/headers";
-import { ReactNode, Suspense } from "react";
-import { ToastContainer } from "react-toastify";
-import { Loading } from "~/components/layouts/Loading";
-import { ReactQueryClientProvider } from "~/utils/providers/ReactQueryClientProvider";
-import { SettingsProvider } from "~/utils/providers/SettingsProvider";
-import SupabaseProvider from "~/utils/providers/SupabaseProvider";
-import { ThemeProvider } from "~/utils/providers/ThemeProvider";
-import useSupabaseServer from "~/utils/server/supabase-server";
+import { Poppins } from 'next/font/google';
+import { cookies } from 'next/headers';
+import { ReactNode, Suspense } from 'react';
+import { ToastContainer } from 'react-toastify';
+import { Loading } from '~/components/layouts/Loading';
+import { ReactQueryClientProvider } from '~/utils/providers/ReactQueryClientProvider';
+import { SettingsProvider } from '~/utils/providers/SettingsProvider';
+import SupabaseProvider from '~/utils/providers/SupabaseProvider';
+import { ThemeProvider } from '~/utils/providers/ThemeProvider';
+import useSupabaseServer from '~/utils/server/supabase-server';
 
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
